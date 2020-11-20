@@ -50,29 +50,28 @@ $(document).ready(function() {
 window.onload = function() {
 
     var lookBtn = document.querySelector('#lookup');
-    var httpRequest;
+    var httpReq;
   
     lookBtn.addEventListener('click', function(element) {
       element.preventDefault();
-        console.log(document.querySelector('#country').value);
+        
   
-      httpRequest = new XMLHttpRequest();
+      httpReq = new XMLHttpRequest();
   
-      // GET Request
       var url = "world.php";
-      httpRequest.onreadystatechange = loadResult;
-      httpRequest.open('GET', url);
-      httpRequest.send();
+      httpReq.onreadystatechange = loadResult;
+      httpReq.open('GET', url);
+      httpReq.send();
     });
   
     function loadResult() {
-      if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {
-          var response = httpRequest.responseText;
+      if (httpReq.readyState === XMLHttpRequest.DONE) {
+        if (httpReq.status === 200) {
+          var response = httpReq.responseText;
           var result = document.querySelector('#result');
           result.innerHTML = response;
         } else {
-          alert('There was a problem with the request.');
+          alert('No result found.');
         }
       }
     }

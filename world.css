@@ -54,6 +54,8 @@ input{
 
 #lookup{  
     height: 24px;
+    color:white;
+    background-color:#272727;
    /* align-items: center;
     justify-content: center;
     width: 150px;*/
